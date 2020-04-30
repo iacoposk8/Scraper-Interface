@@ -36,11 +36,11 @@ Each elements and get proprieties
 |--|--|--|
 | init | `headless`, `each_log` | Initialize the class. `headless` by default is True and hides the chrome interface. `each_log` by default is False and keeps only one log per page |
 | close | | close the browser |
-| ftp_upload | server, username, password, localfile, remotefile |  |
+| ftp_upload | server, username, password, localfile, remotefile | Upload a file via ftp |
 | get | `url` | open the `url` in the browser |
 | scroll_to_bottom | `times`, `wait` | scroll the bottom of the page X `times` and, `wait` for X seconds each time |
-| translate | src, dest, xml = False |  |
-| wait_find | `locator`, `element` | wait 10 seconds or until the css element `locator` appears. `element` default value is False and will search the whole html page. If `element` (obtained from a previous wait_find) is passed, the search will be done only inside this `element` |
+| translate | txt, src, dest, xml = False | return a translated string. translate a `txt` from the `src` language to the `dest` language. You can set `xml` value (default is False) to True for the right escape if you want use it in a xml file  |
+| wait_find | `locator`, `element` | wait 10 seconds or until the css element `locator` appears and return a Selenium element. `element` default value is False and will search the whole html page. If `element` (obtained from a previous wait_find) is passed, the search will be done only inside this `element` |
 | xml_generator | filename, title, link, description, items |  |
 
 to use all other native Selenium commands
