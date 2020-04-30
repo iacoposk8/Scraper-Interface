@@ -41,7 +41,7 @@ Each elements and get proprieties
 | scroll_to_bottom | `times`, `wait` | scroll the bottom of the page X `times` and, `wait` for X seconds each time |
 | translate | `txt`, `src`, `dest`, `xml` | return a translated string. translate a `txt` from the `src` language to the `dest` language. You can set `xml` value (default is False) to True for the right escape if you want use it in a xml file  |
 | wait_find | `locator`, `element` | wait 10 seconds or until the css element `locator` appears and return a Selenium element. `element` default value is False and will search the whole html page. If `element` (obtained from a previous wait_find) is passed, the search will be done only inside this `element` |
-| xml_generator | filename, title, link, description, items |  |
+| xml_generator | `filename`, `title`, `link`, `description`, `items` | Useful for creating rss feeds. your feed `items` must be formatted like this: `[{"link": "xxxxxxxx", "guid":"xxxxxxxx", "title": "xxxxxxxx", "description": "xxxxxxxx"}]` |
 
 to use all other native Selenium commands
 
