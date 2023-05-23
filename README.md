@@ -4,10 +4,8 @@ A library to use Selenium even more easily with the addition of functions to gen
 ## Installation
 
     git clone https://github.com/iacoposk8/Scraper-Interface
-Download chromedriver via  
-[https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads)
-and put it in the folder "Scraper-Interface"
-and some `pip install` for dependencies
+    cd Scraper-Interface
+    pip install requirements.txt
 
 ## Quick start
 Import class from a different path
