@@ -319,10 +319,14 @@ class Scraper():
 			try:
 				self.driver = webdriver.Chrome(file_driver, options=self.browser_options, desired_capabilities=caps)
 			except:
-				print(file_driver)
-				os.remove(file_driver)
-				traceback.print_exc()
-				print("-----------------")
+				try:
+					self.browser_options.add_argument('--executable_path="'+file_driver+'"')
+					self.driver = webdriver.Chrome(options=self.browser_options) #desired_capabilities=caps
+				except:
+					print(file_driver)
+					os.remove(file_driver)
+					traceback.print_exc()
+					print("-----------------")
 
 			stealth(self.driver,
 				languages=["en-US", "en"],
@@ -521,6 +525,12 @@ class Scraper():
 		f.write(self.driver.page_source)
 		f.close()
 
+	'''
+	get_shadowRoot: {
+		"description": "Gets the ShadowRoot of an element",
+		"elem": "Dom element where to look for the ShadowRoot"
+	}
+	'''
 	def get_shadowRoot(self, elem):
 		return self.driver.execute_script('return arguments[0].shadowRoot', elem)
 
@@ -571,33 +581,6 @@ class Scraper():
 			self.close()
 			self.__get_driver(3)
 			self.get(self.url)
-
-	def get_content(self, url, b64 = False):
-		attempt = 0
-		while True:
-			session = self.__get_session()
-			try:
-				cntnt = session.get(url, timeout=5).content
-				if b64:
-					return base64.b64encode(cntnt).decode("utf-8")
-				else:
-					return cntnt
-			except Exception as e:
-				attempt += 1
-				if attempt > 3:
-					return ""
-
-				if self.verbose:
-					print("get_content error")
-					print(e)
-				
-				if self.tor:
-					self.renew_connection()
-				
-				if self.verbose:
-					print("wait 5 seconds")
-					time.sleep(5)
-
 
 	'''
 	wait_find: {
