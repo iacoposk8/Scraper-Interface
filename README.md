@@ -1,3 +1,5 @@
+[![Support me](https://iacoposk8.github.io/img/buymepizza.png)](https://buymeacoffee.com/iacoposk8)
+
 # Scraper Interface
 A library to use Selenium even more easily with the addition of functions to generate xml files and upload them online via ftp
 
